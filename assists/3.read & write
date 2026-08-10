@@ -1,0 +1,16 @@
+give fs modlie info
+
+The fs (File System) module is a built-in Node.js module used to work with files and directories on your computer. It lets your JavaScript program create, read, update, delete, copy, move, and inspect files.
+
+What fs can do
+Read files
+Write files
+Append data to files
+Delete files
+Rename or move files
+Copy files
+Create and remove directories
+Read directory contents
+Check if files exist
+Get file information (size, timestamps, permissions)
+Watch files for changes

@@ -1,0 +1,44 @@
+{
+  "user": {
+    "id": "usr_987654",
+    "name": "Alex Mercer",
+    "email": "alex.mercer@example.com",
+    "isActive": true,
+    "roles": ["customer", "reviewer"]
+  },
+  "order": {
+    "id": "ord_112233",
+    "date": "2026-07-09T14:30:00Z",
+    "currency": "USD",
+    "totals": {
+      "subtotal": 129.98,
+      "tax": 10.40,
+      "shipping": 0.00,
+      "grandTotal": 140.38
+    },
+    "items": [
+      {
+        "productId": "prod_001",
+        "name": "Wireless Ergonomic Keyboard",
+        "quantity": 1,
+        "price": 89.99,
+        "inStock": true
+      },
+      {
+        "productId": "prod_042",
+        "name": "Precision Trackpad Mouse",
+        "quantity": 1,
+        "price": 39.99,
+        "inStock": true
+      }
+    ]
+  },
+  "shippingAddress": {
+    "street": "123 Innovation Way",
+    "suite": "Apt 4B",
+    "city": "Tech City",
+    "state": "CA",
+    "postalCode": "94016",
+    "country": "USA"
+  }
+}
