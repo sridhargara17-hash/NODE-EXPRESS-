@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require("fs");
+const morgan=require('morgan')
 const app = express();
 const tours = JSON.parse(
     fs.readFileSync(`${__dirname}/assets/tours-simple.json`),
@@ -14,8 +15,7 @@ app.use((req,res,next)=>{
    req.requestTime=new Date().toISOString();
     next()
 })
-
-
+app.use(morgan('dev'))
 
 // ---------------------------------------------
 
