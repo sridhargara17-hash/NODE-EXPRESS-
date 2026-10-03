@@ -11,7 +11,7 @@ dns.setServers(['8.8.8.8', '1.1.1.1']);
 DATABASE_URL = process.env.DATABASE
 // DATABASE_URL=process.env.DATABASE_LOCAL_URL
 connectDB(DATABASE_URL)
-const tours =JSON.parse( fs.readFileSync(`${__dirname}/tour.json`, 'utf-8'))
+const tours =JSON.parse( fs.readFileSync(`${__dirname}/tours2.json`, 'utf-8'))
 const importData = async () => {
     try {
         await Tour.create(tours)
