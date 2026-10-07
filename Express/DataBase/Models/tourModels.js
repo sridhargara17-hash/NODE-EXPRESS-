@@ -16,5 +16,6 @@ const saveTour = async () => {
 }) 
 }
 // saveTour() 
+// console.log(Tour.schema.virtualpath('reviews'));
 
 module.exports=Tour

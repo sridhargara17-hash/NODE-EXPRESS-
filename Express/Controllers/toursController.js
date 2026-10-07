@@ -7,6 +7,7 @@ const fs = require("fs");
 const tours = JSON.parse(fs.readFileSync(`./assets/tours-simple.json`, "utf8"));
 const Tours=require('../DataBase/Models/tourModels');
 const Tour = require('../DataBase/Models/tourModels');
+const handleFactory=require('./handleFactory')
 // !------------parem middleware controller-------------------
 // const checkId = (req, res, next, val) => {
 //   if (req.params.id * 1 > tours.length) {
@@ -132,23 +133,23 @@ const updateTours = catchAsync(async (req, res,next) => {
     })
 
 })
+const deleteTours=handleFactory.deleteOne(Tour)
+// const deleteTours = catchAsync(async(req, res,next) => {
 
-const deleteTours = catchAsync(async(req, res,next) => {
-
-  const data=await Tours.findByIdAndDelete(req.params.id);
-    if (!data) {
-    return next(new AppError('No tour found with that Id ',404))
-  }
-    res.status(204).json({
-      status: "sucess",
-    });
-})
+//   const data=await Tours.findByIdAndDelete(req.params.id);
+//     if (!data) {
+//     return next(new AppError('No tour found with that Id ',404))
+//   }
+//     res.status(204).json({
+//       status: "sucess",
+//     });
+// })
 
 
 const getTour = catchAsync(async (req, res, next) => {
   const Id = req.params.id
   // console.log(Id)
-  const data=await Tours.findById(Id)
+  const data = await Tours.findById(Id).populate('reviews')
   // console.log(typeof Id)
   console.log(data)
   if (!data) {

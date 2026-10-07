@@ -12,10 +12,12 @@ const globalErrorhandler=require('./Controllers/errorController')
 const AppError=require('./utils/appError')
 const tourRouter = require("./routes/tourRoutes");
 const userRouter = require("./routes/userRoutes");
+const reviewRouter=require('./routes/reviewRoute')
 // !------------------MiddleWares---------------
 // secureity HTTP headers
 app.use(helmet())
 //!--------Body parser ,reading data from into body req.body---------------
+const router = express.Router({ mergeParams: true });
 app.use(express.json({ limit: '10kb' }));//---------->using for json parser
 // Data sanitization aganist NoSql Query injection
 app.use(mongoSanitize())
@@ -51,6 +53,7 @@ app.use(express.static(`${__dirname}/public/Html`))
 // !-----------creating tourRouter--------------
 app.use("/tours", tourRouter);
 app.use("/user", userRouter);
+app.use("/review", reviewRouter);
 
 //! ---------------ERROR MIDDDLEWARE-------------------------------------
 app.all('*name', (req, res, next) => {
